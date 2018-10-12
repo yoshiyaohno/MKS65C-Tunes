@@ -19,12 +19,17 @@ void print_list(struct node * n){
 }
 
 
-struct node * insert_front(struct node * n, char * name, char * artist){
-  struct node * new = malloc(sizeof(struct node));
-  strcpy(new -> name, name);
-  strcpy(new -> artist, artist);
-  new -> next = n;
-  return new;
+struct node * insert(struct node * n, char * name, char * artist){
+  if(!(n -> next) || (int) *(n -> artist) <= (int) *(artist)){
+    struct node * new = malloc(sizeof(struct node));
+    
+    strcpy(new -> name, name);
+    strcpy(new -> artist, artist);
+    new -> next = n;
+    return new;
+  }else{
+    return insert(n -> next, name, artist);
+  }
 }
 
 struct node * free_list(struct node * n){
