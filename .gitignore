@@ -1,3 +1,9 @@
+# Output file
+player
+
+# Swap files
+*.swp
+
 # Prerequisites
 *.d
 
