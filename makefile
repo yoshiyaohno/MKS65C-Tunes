@@ -1,11 +1,11 @@
-all : driver.o library.o songnode.o
-	gcc -o player driver.o library.o songnode.o
+all : driver.o library.o list.o
+	gcc -o player driver.o library.o list.o
 
 library.o : 
 	gcc -c library.c
 
-songnode.o :
-	gcc -c songnode.c
+list.o :
+	gcc -c list.c
 
 driver.o :
 	gcc -c driver.o
