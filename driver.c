@@ -3,14 +3,19 @@
 #include "list.h"
 
 int main(){
-  printf("\nasdf");
-
+  printf("\n");
   struct node * l = NULL;
-  l = insert(l, "adf", "asdf");
-  l = insert(l, "4fasdfee", "the yeetles");
-  l = insert(l, "4dee", "the yeetles");
-  l = insert(l, "4aee", "the eetles");
-
+ 
+  l = insert(l, "y", "a");
+  l = insert(l, "-", "t");
+  l = insert(l, "a", "a");
+  l = insert(l, "-", "b");
+  l = insert(l, "-", "z");
+  l = insert(l, "r", "a");
+  l = insert(l, "fff", "ad");
+  l = insert(l, "d", "adf");
+  l = insert(l, "-", "a");
+ 
   print_list(l);
   
   l = free_list(l);
