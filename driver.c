@@ -9,8 +9,8 @@ int main(){
   l = insert(l, "y", "a");
   l = insert(l, "-", "t");
   l = insert(l, "a", "a");
-  l = insert(l, "-", "b");
-  l = insert(l, "-", "z");
+  l = insert(l, "a", "b");
+  l = insert(l, "a", "z");
   l = insert(l, "r", "a");
   l = insert(l, "fff", "ad");
   l = insert(l, "d", "adf");
