@@ -76,3 +76,13 @@ struct node * random_song( struct node *n)
         n = n->next;
     return n;
 }
+
+
+struct node * find_song( struct node *n, char *name, char *artist )
+{
+    if( !strcmp(n->artist, artist) )
+        if( !strcmp(n->name, name) )
+            return n;
+    return find_artist( n->next, artist);
+}
+

@@ -32,6 +32,9 @@ int main(){
   print_list( find_artist(l, "b"));
   print_list( find_artist(l, "t"));
   
+  print_list( find_song(l, "d", "adf"));
+  print_list( find_song(l, "-", "t"));
+
   l = free_list(l);
 
   print_list(l);
