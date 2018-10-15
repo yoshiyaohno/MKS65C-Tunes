@@ -7,7 +7,7 @@ library.o : library.c library.h
 list.o : list.c list.h
 	gcc -c list.c
 
-driver.o : driver.c
+driver.o : driver.c list.h library.h
 	gcc -c driver.c
 
 clean :
