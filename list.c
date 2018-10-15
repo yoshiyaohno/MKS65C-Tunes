@@ -52,3 +52,10 @@ struct node * free_list(struct node * n){
   free(n);
   return NULL;
 }
+
+struct node * find_artist( struct node *n, char *artist )
+{
+    if( !strcmp(n->artist, artist) )
+        return n;
+    return find_artist( n->next, artist);
+}
