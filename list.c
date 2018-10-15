@@ -26,9 +26,9 @@ int compare(struct node * n1, struct node *  n2)
     return artcmp;
 }
 
-struct node * inserter(struct node * n, struct node * new){ 
+struct node * inserter(struct node * n, struct node * new){
   if(!n || compare(new,n) <= 0 ){
-    new -> next = n; 
+    new -> next = n;
     return new;
   }else{
     n -> next = inserter(n -> next, new);
@@ -40,8 +40,19 @@ struct node * inserter(struct node * n, struct node * new){
 struct node * insert(struct node * n, char * name, char * artist){
   struct node * new = malloc(sizeof(struct node));
   strcpy(new -> artist, artist);
-  strcpy(new -> name, name); 
+  strcpy(new -> name, name);
   return inserter(n, new);
+}
+
+struct node * delete(struct node * list, struct node * n){
+  if(!n || n == list){
+    return list -> next;
+  }else{
+    list -> next = delete(list -> next, n);
+  }
+
+
+
 }
 
 
