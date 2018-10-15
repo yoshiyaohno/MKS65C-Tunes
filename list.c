@@ -56,6 +56,7 @@ struct node * free_list(struct node * n){
 
 struct node * find_artist( struct node *n, char *artist )
 {
+    if( !n ) return NULL;
     if( !strcmp(n->artist, artist) )
         return n;
     return find_artist( n->next, artist);
@@ -80,6 +81,7 @@ struct node * random_song( struct node *n)
 
 struct node * find_song( struct node *n, char *name, char *artist )
 {
+    if( !n ) return NULL;
     if( !strcmp(n->artist, artist) )
         if( !strcmp(n->name, name) )
             return n;

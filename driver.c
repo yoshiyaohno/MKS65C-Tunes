@@ -30,10 +30,10 @@ int main(){
 
   print_list( find_artist(l, "ad"));
   print_list( find_artist(l, "b"));
-  print_list( find_artist(l, "t"));
+  print_list( find_artist(l, "jeff"));
   
   print_list( find_song(l, "d", "adf"));
-  print_list( find_song(l, "-", "t"));
+  print_list( find_song(l, "boff", "t"));
 
   l = free_list(l);
 
