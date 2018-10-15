@@ -5,12 +5,13 @@
 int main(){
   printf("\n");
   struct node *l = NULL;
- 
+
   l = insert(l, "b", "b");
   l = insert(l, "b", "a");
   l = insert(l, "a", "a");
   l = insert(l, "a", "b");
   l = insert(l, "-", "t");
+
   l = insert(l, "a", "a");
   l = insert(l, "a", "b");
   l = insert(l, "a", "z");
@@ -18,8 +19,10 @@ int main(){
   l = insert(l, "fff", "ad");
   l = insert(l, "d", "adf");
   l = insert(l, "-", "a");
- 
+
   print_list(l);
+  print_list( l = delete(l, find_artist(l, "ad")));
+  print_list( l) ;
 
   printf( "%d\n\n\n", length(l));
   print_list( random_song(l));

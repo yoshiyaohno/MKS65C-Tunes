@@ -17,3 +17,5 @@ struct node * random_song( struct node *n);
 struct node * find_song( struct node *n, char *artist, char *song );
 
 int length( struct node * );
+
+struct node * delete(struct node * list, struct node * n);
