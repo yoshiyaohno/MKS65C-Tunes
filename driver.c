@@ -21,6 +21,13 @@ int main(){
  
   print_list(l);
 
+  printf( "%d\n\n\n", length(l));
+  print_list( random_song(l));
+  print_list( random_song(l));
+  print_list( random_song(l));
+  printf( "\n\n\n\n");
+
+
   print_list( find_artist(l, "ad"));
   print_list( find_artist(l, "b"));
   print_list( find_artist(l, "t"));

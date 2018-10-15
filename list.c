@@ -53,9 +53,26 @@ struct node * free_list(struct node * n){
   return NULL;
 }
 
+
 struct node * find_artist( struct node *n, char *artist )
 {
     if( !strcmp(n->artist, artist) )
         return n;
     return find_artist( n->next, artist);
+}
+
+
+int length( struct node *n )
+{
+    // haha
+    return n ? 1 + length(n->next) : 0;
+}
+
+
+struct node * random_song( struct node *n)
+{
+    int target = rand() % length(n);
+    while( target-- )
+        n = n->next;
+    return n;
 }
