@@ -26,3 +26,19 @@ void print(struct lib * n){
 }
 
 
+void print_artist(struct lib * n, char * artist){
+  printf("\n   The songs composed by %s are: \n", artist);
+  print_list( artist_list(find_artist((n -> array)[* artist - 'a'], artist), artist));
+}
+
+struct node * search_artist(struct lib * n, char * artist){
+  return find_artist((n -> array)[* artist - 'a'], artist);
+}
+
+void print_letter(struct lib * n, char c){
+  printf("\n  The entries under %c are: \n", c);
+  print_list((n -> array)[c - 'a']);
+}
+
+
+

@@ -73,6 +73,13 @@ struct node * find_artist( struct node *n, char *artist )
     return find_artist( n->next, artist);
 }
 
+struct node * artist_list(struct node * n, char * artist){
+  if(!n || strcmp(n -> artist, artist)){
+    return NULL;
+  }else{
+    n -> next = artist_list(n -> next, artist);
+  }
+}
 
 int length( struct node *n )
 {

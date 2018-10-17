@@ -12,6 +12,8 @@ struct node * free_list(struct node * n);
 
 struct node * find_artist( struct node *n, char *artist );
 
+struct node * artist_list(struct node * n, char * artist);
+
 struct node * random_song( struct node *n);
 
 struct node * find_song( struct node *n, char *artist, char *song );
