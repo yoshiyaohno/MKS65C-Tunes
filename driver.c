@@ -14,12 +14,11 @@ int main(){
   add_node(library, "bo", "fa");
   add_node(library, "b", "ada");
 
-  print_list(search_artist(library, "b"));
-
+  //print(library);
   
-  printf("\n----------------");
-  print_letter(library, 'b');
-  // print(library); 
+  // printf("\n----------------");
+  
+  //print(library); 
   return 0;
 }
 

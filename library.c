@@ -40,5 +40,7 @@ void print_letter(struct lib * n, char c){
   print_list((n -> array)[c - 'a']);
 }
 
-
+void delete_song(struct lib * n, struct node * song){
+  delete((n -> array)[* (song -> artist) - 'a'], song);
+}
 
