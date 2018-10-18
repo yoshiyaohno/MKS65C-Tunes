@@ -23,5 +23,6 @@ void shuffle(struct lib * n);
 
 void delete_song(struct lib * n, char *artist, char *title);
 
-void clear(struct lib * n);
+struct lib * clear(struct lib * );
 
+int a_index(char *);

@@ -59,6 +59,14 @@ int main()
     // printf("\n--------DELETING FAKE SHOEGAZE--------\n");
     // delete_song(library, "Ride", "Seagull");
     // print(library);
+
+    printf("\n========CLEARING LIBRARY==========\n");
+    library = clear(library);
+    print(library);
+
+    // library->array[a_index("R")] =
+    //     free_list( library->array[a_index("R")]);
+    // print(library);
   
     return 0;
 }

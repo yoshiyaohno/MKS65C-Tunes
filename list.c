@@ -55,12 +55,13 @@ struct node * delete(struct node * list, struct node * n){
 }
 
 
-struct node * free_list(struct node * n){
-  if(n->next != 0){
-    free_list(n->next);
-  }
-  free(n);
-  return NULL;
+struct node * free_list(struct node * n)
+{
+    if(n) {
+        free_list(n->next);
+        free(n);
+    }
+    return NULL;
 }
 
 struct node * find_artist( struct node *n, char *artist )

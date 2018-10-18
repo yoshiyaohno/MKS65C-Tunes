@@ -35,9 +35,11 @@ struct node * search(struct lib * n, char * artist, char * song){
 
 void print(struct lib * n)
 {
-    int i;
-    for(i = 0; i < 27; i++)
-        print_list((n -> array)[i]);
+    if(n) {
+        int i;
+        for(i = 0; i < 27; i++)
+            print_list((n -> array)[i]);
+    }
 }
 
 
@@ -93,4 +95,14 @@ void shuffle( struct lib *libr )
     int i = 16;
     while( i-- )
         print_song( lib_random_song(libr) );
+}
+
+struct lib *clear( struct lib *libr )
+{
+    int i = 27;
+    while(i--) {
+        libr->array[i] = free_list( libr->array[i] );
+    }
+    free(libr);
+    return NULL;
 }
