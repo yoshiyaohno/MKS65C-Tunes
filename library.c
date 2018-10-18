@@ -25,6 +25,7 @@ void add_node(struct lib * n, char * artist, char * song)
     (n->array)[ a_index(artist) ] =
         insert( (n->array)[ a_index(artist) ],
                 artist, song);
+    n->size += 1;
 }
 
 struct node * search(struct lib * n, char * artist, char * song){
@@ -66,22 +67,30 @@ void delete_song(struct lib * n, char *artist, char *title)
         delete( (n -> array)[a_index(artist)],
                 find_song( (n->array)[a_index(artist)],
                     artist, title) );
+    n->size - 1;
+    // if a song that doesn't exist gets deleted this is
+    //     gonna not be the actual size
+}
+
+struct node *lib_random_song( struct lib *libr )
+{
+    int target = rand() % (libr->size);
+    // get to the right letter
+    struct node **p = libr->array;
+    while( (target >= length(*p)) )
+        target -= length(*p++);
+    // now travel dowon the list to the right song
+    struct node *q = *p;
+    while( target-- )
+        q = q->next;
+    return q;
 }
 
 void shuffle( struct lib *libr )
 {
-    int target = rand() % (libr->size);
-    printf("\tSHUFFLE TARgeT: %d\n", target);
-    struct node **p = libr->array;
-    while( p && (target - length(*p)) >= 0 ) {
-        target -= length(*p++);
-        printf("\t\ttarget progress, now %d\n", target);
-        printf("\t\twe are at:\n");
-        print_song(*p);
-        printf("\n");
-    }
-    struct node *q = *p;
-    while( target-- ) ++q;
-    print_song(q);
+    // this can repeat songs but I do not want to get into
+    //   not repeating right now haha
+    int i = 16;
+    while( i-- )
+        print_song( lib_random_song(libr) );
 }
-
