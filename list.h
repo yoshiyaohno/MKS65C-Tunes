@@ -6,6 +6,8 @@ struct node{
 
 void print_list(struct node * n);
 
+void print_song(struct node *);
+
 struct node * insert(struct node * n, char * name, char * artist);
 
 struct node * free_list(struct node * n);

@@ -5,12 +5,14 @@
 
 struct lib * initialize(){
   struct lib * library = calloc(1, sizeof(struct lib));
+  library->size = 0;
   return library;
 }
 
 void add_node(struct lib * n, char * artist, char * song){
   struct node * * list =   ((n -> array) + (* artist - 'a'));
   * list = insert(* list, song, artist);
+  n->size += 1;
 }
 
 struct node * search(struct lib * n, char * artist, char * song){
@@ -42,5 +44,18 @@ void print_letter(struct lib * n, char c){
 
 void delete_song(struct lib * n, struct node * song){
   delete((n -> array)[* (song -> artist) - 'a'], song);
+  // size - 1 somewhere here, if the delete is successful
+}
+
+void shuffle( struct lib *libr )
+{
+    int target = rand() % libr->size;
+    printf("\tSHUFFLE TARgeT: %d", target);
+    struct node **p = libr->array;
+    while( p && target - length(*p) > 0 )
+        target -= length(*p++);
+    struct node *q = *p;
+    while( target ) ++q;
+    print_song(q);
 }
 

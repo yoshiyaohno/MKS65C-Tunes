@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "library.h"
 #include "list.h"
 
 int main(){
+  srand( time(NULL) );
   printf("\n");
   struct lib * library = initialize();
    
@@ -14,9 +16,16 @@ int main(){
   add_node(library, "bo", "fa");
   add_node(library, "b", "ada");
 
-  //print(library);
+  print(library);
+  printf("\n----------------");
+  print_artist(library, "b");
+
+  printf("\n\n////////SHUFFLING/////////\n");
+  shuffle(library);
+  shuffle(library);
+  shuffle(library);
+  shuffle(library);
   
-  // printf("\n----------------");
   
   //print(library); 
   return 0;

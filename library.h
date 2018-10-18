@@ -1,5 +1,6 @@
 struct lib {
   struct node * array[27];
+  int size; // yeah yeah it's a copout
 };
 
 struct lib * initialize();

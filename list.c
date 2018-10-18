@@ -3,10 +3,15 @@
 #include <string.h>
 #include "list.h"
 
+void print_song( struct node *n )
+{
+    printf("The song is: %s, by %s;\n", n->name, n->artist);
+}
+
 void print_list_help(struct node * n){
   if(n){
-    printf("The song is: %s, by %s;\n", n->name, n->artist);
     if(n->next ){
+      print_song(n);
       print_list_help(n->next);
     }
   }
@@ -50,9 +55,6 @@ struct node * delete(struct node * list, struct node * n){
   }else{
     list -> next = delete(list -> next, n);
   }
-
-
-
 }
 
 
