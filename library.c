@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "list.h"
 #include "library.h"
 
@@ -19,22 +20,28 @@ struct node * search(struct lib * n, char * artist, char * song){
   return find_song((n -> array)[* artist - 'a'], song, artist);
 }
 
-void print(struct lib * n){
-  int i;
-  for(i = 0; i < 27; i++){
-    printf("\n   The list under %c is:\n", i + 'a');
-    print_list((n -> array)[i]);
-  }
+void print(struct lib * n)
+{
+    int i;
+    for(i = 0; i < 27; i++) {
+        printf("\n   The list under %c is:\n", i + 'a');
+        print_list((n -> array)[i]);
+    }
 }
 
 
-void print_artist(struct lib * n, char * artist){
-  printf("\n   The songs composed by %s are: \n", artist);
-  print_list( artist_list(find_artist((n -> array)[* artist - 'a'], artist), artist));
+void print_artist(struct lib *libr, char *artist){
+    printf("\n\tSongs by %s:\n", artist);
+    struct node *n = search_artist(libr, artist);
+    while( n && !strcmp(n->artist, artist) ) {
+        print_song(n);
+        n = n->next;
+    }
 }
 
-struct node * search_artist(struct lib * n, char * artist){
-  return find_artist((n -> array)[* artist - 'a'], artist);
+struct node * search_artist(struct lib * n, char * artist)
+{
+    return find_artist((n -> array)[* artist - 'a'], artist);
 }
 
 void print_letter(struct lib * n, char c){
@@ -49,13 +56,18 @@ void delete_song(struct lib * n, struct node * song){
 
 void shuffle( struct lib *libr )
 {
-    int target = rand() % libr->size;
-    printf("\tSHUFFLE TARgeT: %d", target);
+    int target = rand() % (libr->size);
+    printf("\tSHUFFLE TARgeT: %d\n", target);
     struct node **p = libr->array;
-    while( p && target - length(*p) > 0 )
+    while( p && (target - length(*p)) >= 0 ) {
         target -= length(*p++);
+        printf("\t\ttarget progress, now %d\n", target);
+        printf("\t\twe are at:\n");
+        print_song(*p);
+        printf("\n");
+    }
     struct node *q = *p;
-    while( target ) ++q;
+    while( target-- ) ++q;
     print_song(q);
 }
 

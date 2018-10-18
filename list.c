@@ -5,22 +5,16 @@
 
 void print_song( struct node *n )
 {
-    printf("The song is: %s, by %s;\n", n->name, n->artist);
+    printf("%s - %s\n", n->artist, n->name);
 }
 
-void print_list_help(struct node * n){
-  if(n){
-    if(n->next ){
-      print_song(n);
-      print_list_help(n->next);
+
+void print_list(struct node *n)
+{
+    if(n) {
+        print_song(n);
+        print_list(n->next);
     }
-  }
-}
-
-void print_list(struct node * n){
-  printf("[\n");
-  print_list_help(n);
-  printf("]\n");
 }
 
 int compare(struct node * n1, struct node *  n2)
@@ -69,7 +63,6 @@ struct node * free_list(struct node * n){
   return NULL;
 }
 
-
 struct node * find_artist( struct node *n, char *artist )
 {
     if( !n ) return NULL;
@@ -79,11 +72,10 @@ struct node * find_artist( struct node *n, char *artist )
 }
 
 struct node * artist_list(struct node * n, char * artist){
-  if(!n || strcmp(n -> artist, artist)){
-    return NULL;
-  }else{
-    n -> next = artist_list(n -> next, artist);
-  }
+    if(!n || strcmp(n -> artist, artist))
+        return NULL;
+    else
+        n -> next = artist_list(n -> next, artist);
 }
 
 int length( struct node *n )

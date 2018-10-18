@@ -9,22 +9,32 @@ int main(){
   printf("\n");
   struct lib * library = initialize();
    
-  add_node(library, "b", "a");
-  add_node(library, "b", "a");
-  add_node(library, "c", "a");
-  add_node(library, "d", "a");
-  add_node(library, "bo", "fa");
-  add_node(library, "b", "ada");
+  add_node(library, "Radiohead", "Climbing Up the Walls");
+  add_node(library, "Radiohead", "Motion Picture Soundtrack");
+  add_node(library, "Radiohead", "Exit Music (For a Film)");
+  add_node(library, "Radiohead", "Life in a Glasshouse");
+  add_node(library, "Radiohead", "Life in a Glasshouse");
+  add_node(library, "Ride", "Seagull");
+  add_node(library, "R.E.M.", "Losing My Religion");
+  add_node(library, "Pink Floyd", "Echoes");
+  add_node(library, "Pink Floyd", "Dogs");
+  add_node(library, "Pink Floyd", "Time");
+  add_node(library, "American Football", "Never Meant");
+  add_node(library, "American Football",
+          "I'll See You When We're Both Not So Emotional");
+  add_node(library, "Arctic Monkeys", "The Ultracheese");
 
-  print(library);
+  print_artist( library, "Radiohead");
+  // print(library);
   printf("\n----------------");
-  print_artist(library, "b");
+  // print_artist(library, "b");
 
-  printf("\n\n////////SHUFFLING/////////\n");
-  shuffle(library);
-  shuffle(library);
-  shuffle(library);
-  shuffle(library);
+  // printf("oof %d\n", library->size);
+  // printf("\n\n////////SHUFFLING/////////\n");
+  // shuffle(library);
+  // shuffle(library);
+  // shuffle(library);
+  // shuffle(library);
   
   // //  print(library);
   // 
