@@ -4,16 +4,23 @@
 #include "list.h"
 #include "library.h"
 
+int artist_index( char *artist )
+{
+}
+
 struct lib * initialize(){
   struct lib * library = calloc(1, sizeof(struct lib));
   library->size = 0;
   return library;
 }
 
-void add_node(struct lib * n, char * artist, char * song){
-  struct node * * list =   ((n -> array) + (* artist - 'a'));
-  * list = insert(* list, song, artist);
-  n->size += 1;
+void add_node(struct lib * n, char * artist, char * song)
+{
+    // this looks a little terrible written out
+    (n->array)[*artist - 'a'] =
+        insert( (n->array)[*artist - 'a'],
+                song, artist);
+    n->size += 1;
 }
 
 struct node * search(struct lib * n, char * artist, char * song){
@@ -22,11 +29,12 @@ struct node * search(struct lib * n, char * artist, char * song){
 
 void print(struct lib * n)
 {
-    int i;
-    for(i = 0; i < 27; i++) {
-        printf("\n   The list under %c is:\n", i + 'a');
-        print_list((n -> array)[i]);
-    }
+    // int i;
+    // for(i = 0; i < 27; i++) {
+    //     printf("\tprinting i = %d\n", i);
+    //     print_list((n -> array)[i]);
+    // }
+    //print_list( (n->array)['R' - 'a'] );
 }
 
 

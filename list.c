@@ -5,7 +5,7 @@
 
 void print_song( struct node *n )
 {
-    printf("%s - %s\n", n->artist, n->name);
+    if(n) printf("%s - %s\n", n->artist, n->name);
 }
 
 
