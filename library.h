@@ -19,7 +19,7 @@ void print(struct lib * n);
 
 void shuffle(struct lib * n);
 
-void delete_song(struct lib * n, struct node * song);
+void delete_song(struct lib * n, char *artist, char *title);
 
 void clear(struct lib * n);
 

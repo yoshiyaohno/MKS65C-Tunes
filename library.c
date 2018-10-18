@@ -4,8 +4,13 @@
 #include "list.h"
 #include "library.h"
 
-int artist_index( char *artist )
+int a_index( char *artist )
 {
+    if( *artist >= 'A' && *artist <= 'Z' )
+        return *artist - 'A';
+    if( *artist >= 'a' && *artist <= 'z' )
+        return *artist - 'a';
+    return 26; // symbol case
 }
 
 struct lib * initialize(){
@@ -17,24 +22,21 @@ struct lib * initialize(){
 void add_node(struct lib * n, char * artist, char * song)
 {
     // this looks a little terrible written out
-    (n->array)[*artist - 'a'] =
-        insert( (n->array)[*artist - 'a'],
-                song, artist);
-    n->size += 1;
+    (n->array)[ a_index(artist) ] =
+        insert( (n->array)[ a_index(artist) ],
+                artist, song);
 }
 
 struct node * search(struct lib * n, char * artist, char * song){
-  return find_song((n -> array)[* artist - 'a'], song, artist);
+    return find_song((n -> array)[ a_index(artist) ],
+            artist, song);
 }
 
 void print(struct lib * n)
 {
-    // int i;
-    // for(i = 0; i < 27; i++) {
-    //     printf("\tprinting i = %d\n", i);
-    //     print_list((n -> array)[i]);
-    // }
-    //print_list( (n->array)['R' - 'a'] );
+    int i;
+    for(i = 0; i < 27; i++)
+        print_list((n -> array)[i]);
 }
 
 
@@ -49,17 +51,21 @@ void print_artist(struct lib *libr, char *artist){
 
 struct node * search_artist(struct lib * n, char * artist)
 {
-    return find_artist((n -> array)[* artist - 'a'], artist);
+    return find_artist((n -> array)[a_index(artist)], artist);
 }
 
 void print_letter(struct lib * n, char c){
   printf("\n  The entries under %c are: \n", c);
-  print_list((n -> array)[c - 'a']);
+  print_list((n -> array)[a_index(&c)]);
 }
 
-void delete_song(struct lib * n, struct node * song){
-  ((n -> array)[* (song -> artist) - 'a']) = delete((n -> array)[* (song -> artist) - 'a'], song);
-  // size - 1 somewhere here, if the delete is successful
+void delete_song(struct lib * n, char *artist, char *title)
+{
+    // this is so bad
+    (n -> array)[a_index(artist)] =
+        delete( (n -> array)[a_index(artist)],
+                find_song( (n->array)[a_index(artist)],
+                    artist, title) );
 }
 
 void shuffle( struct lib *libr )

@@ -36,7 +36,7 @@ struct node * inserter(struct node * n, struct node * new){
 }
 
 
-struct node * insert(struct node * n, char * name, char * artist){
+struct node * insert(struct node * n, char * artist, char * name){
   struct node * new = malloc(sizeof(struct node));
   strcpy(new -> artist, artist);
   strcpy(new -> name, name);
@@ -94,11 +94,11 @@ struct node * random_song( struct node *n)
 }
 
 
-struct node * find_song( struct node *n, char *name, char *artist )
+struct node * find_song( struct node *n, char *artist, char *title )
 {
     if( !n ) return NULL;
     if( !strcmp(n->artist, artist) )
-        if( !strcmp(n->name, name) )
+        if( !strcmp(n->name, title) )
             return n;
     return find_artist( n->next, artist);
 }
