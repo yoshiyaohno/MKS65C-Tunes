@@ -17,6 +17,8 @@ void print_artist(struct lib * n, char * artist);
 
 void print(struct lib * n);
 
+struct node *lib_random_song(struct lib * n);
+
 void shuffle(struct lib * n);
 
 void delete_song(struct lib * n, char *artist, char *title);
