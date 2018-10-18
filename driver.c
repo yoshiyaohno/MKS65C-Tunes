@@ -14,11 +14,13 @@ int main(){
   add_node(library, "bo", "fa");
   add_node(library, "b", "ada");
 
-  //print(library);
+  //  print(library);
   
   // printf("\n----------------");
+   delete_song(library, search(library, "basdfo", "fa"));
+  // print_list(search(library, "bodadf", "fa"));
   
-  //print(library); 
+   print(library); 
   return 0;
 }
 
