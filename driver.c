@@ -53,6 +53,13 @@ int main()
     printf("\n----------------\n");
     print(library);
 
+    printf("\n/////////////Testing Delete/////////////\n");
+    delete_song(library, "Neutral Milk Hotel", "Oh Comely");
+    delete_song(library, "Neutral Milasdfk Hotel", "Oh Comely");
+    delete_song(library, "Autolux", "Angry Candy");
+
+    print(library);
+    
     printf("\n\n////////SOME SHUFFLES/////////\n");
     shuffle(library);
     
@@ -67,7 +74,8 @@ int main()
     // library->array[a_index("R")] =
     //     free_list( library->array[a_index("R")]);
     // print(library);
-  
+
+    
     return 0;
 }
 

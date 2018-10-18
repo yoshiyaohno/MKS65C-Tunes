@@ -69,7 +69,7 @@ void delete_song(struct lib * n, char *artist, char *title)
         delete( (n -> array)[a_index(artist)],
                 find_song( (n->array)[a_index(artist)],
                     artist, title) );
-    n->size - 1;
+    n->size -= 1;
     // if a song that doesn't exist gets deleted this is
     //     gonna not be the actual size
 }
