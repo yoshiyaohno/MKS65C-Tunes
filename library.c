@@ -16,7 +16,7 @@ void add_node(struct lib * n, char * artist, char * song){
 }
 
 struct node * search(struct lib * n, char * artist, char * song){
-  return find_song((n -> array)[* artist - 'a'], artist, song);
+  return find_song((n -> array)[* artist - 'a'], song, artist);
 }
 
 void print(struct lib * n){
@@ -43,7 +43,7 @@ void print_letter(struct lib * n, char c){
 }
 
 void delete_song(struct lib * n, struct node * song){
-  delete((n -> array)[* (song -> artist) - 'a'], song);
+  ((n -> array)[* (song -> artist) - 'a']) = delete((n -> array)[* (song -> artist) - 'a'], song);
   // size - 1 somewhere here, if the delete is successful
 }
 

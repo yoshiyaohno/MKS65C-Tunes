@@ -50,6 +50,9 @@ struct node * insert(struct node * n, char * name, char * artist){
 }
 
 struct node * delete(struct node * list, struct node * n){
+  if(!list){
+    return list;
+  }
   if(!n || n == list){
     return list -> next;
   }else{
