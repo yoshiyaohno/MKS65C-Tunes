@@ -53,18 +53,12 @@ int main()
     printf("\n----------------\n");
     print(library);
 
-    // printf("oof %d\n", library->size);
-    // printf("\n\n////////SHUFFLING/////////\n");
-    // shuffle(library);
-    // shuffle(library);
-    // shuffle(library);
-    // shuffle(library);
+    printf("\n\n////////SOME SHUFFLES/////////\n");
+    shuffle(library);
     
-    //  print(library);
-    
-    printf("\n--------DELETING FAKE SHOEGAZE--------\n");
-    delete_song(library, "Ride", "Seagull");
-    print(library);
+    // printf("\n--------DELETING FAKE SHOEGAZE--------\n");
+    // delete_song(library, "Ride", "Seagull");
+    // print(library);
   
     return 0;
 }
